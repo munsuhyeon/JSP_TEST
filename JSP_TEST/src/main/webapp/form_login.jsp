@@ -5,13 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function checkInput()
+	{
+		var f = document.dataInput;
+		if(f.id.value == "")
+			{
+				alert("아이디가 입력되지 않았습니다. 다시 입력해주세요!");
+				f.id.focus();
+				return false;
+			}
+		else if(f.name.value == "")
+			{
+				alert("이름이 입력되지 않았습니다. 다시 입력해주세요!");
+				f.name.focus();
+				return false;
+			}
+		else if(f.pw.value == "")
+		{
+			alert("비밀번호가 입력되지 않았습니다. 다시 입력해주세요!");
+			f.pw.focus();
+			return false;
+		}
+		else return true;
+	}
+</script>
 </head>
 <body>
 
 
 	Home > Information
 	<hr>
-	<form action="Login.jsp" method="get">
+	<form action="Login.jsp" method="post" name="dataInput" onsubmit="return checkInput()">
 	<fieldset style="width:300px"> <%-- 폼 테두리 --%>
 		<legend>회원 로그인</legend>
 		ID : <br>
@@ -38,7 +63,7 @@
 		자기소개 :<br>
 		<textarea cols="30", rows="5" name="introduct">
 		</textarea><br>
-		&nbsp;<input type="submit" value="Login">&nbsp;
+		&nbsp;<input type="submit" value="Login" >&nbsp;
 		<input type="reset" value="Cancel">
 	</fieldset>
 	</form>
